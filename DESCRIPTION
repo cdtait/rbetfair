@@ -1,0 +1,15 @@
+Package: rbetfair
+Type: Package
+Title: R API to betfair api-ng
+Version: 0.1
+Date: 2014-09-18
+Depends:
+    RCurl,rjson,plyr
+Author: Craig Tait
+Maintainer: Craig Tait <taitcraigd@gmail.com>
+Description: Provides native R access to befair api-ng
+License: GPL-2
+Packaged: ; ctait
+Repository: 
+Date/Publication: 
+LazyLoad: yes
