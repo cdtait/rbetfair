@@ -3,7 +3,7 @@ rbetfair
 
 Betfair API-NG implementation in the R programming language
 
-GIT and `R CMD build`, here is another way:
+Install using GIT and `R CMD build`
 
 ```bash
 git clone https://github.com/cdtait/rbetfair.git
