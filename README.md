@@ -122,5 +122,8 @@ $runners.ex.availableToLay
 $runners.ex.tradedVolume
 data frame with 0 columns and 0 rows
 
+# Don't forget to 
+logout()
+
 ```
 
