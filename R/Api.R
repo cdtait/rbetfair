@@ -27,15 +27,6 @@
 # Primitives alias used to match the XML naming types
 string<-i64<-i32<-d32<-dateTime<-bool<-function(value) {value}
 
-.onLoad <- function(lib, pkg) {
-  p = c("bitops","RCurl","rjson","plyr")
-  for(x in p)
-    if(any(is.na(utils:::packageDescription(x)))) 
-      install.packages(x,repos="http://cran.at.r-project.org/")
-  
-  for(x in p) do.call("require",list(package=x))
-}
-
 # Checks the value(s) are all contaied in the valid compare set 
 validateSet<-function(values,name,validValues) {
   if (!is.null(values) && length(values) > 0 && !all(values %in% validValues))
