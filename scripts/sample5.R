@@ -1,7 +1,7 @@
 require(rbetfair)
 require(xts)
 
-# Taken from betwise extras.R
+# Thanks to betwise extras.R
 plotPrice <- function(price,back,lay,selection,width=10)
 {
   f = as.factor(price)
