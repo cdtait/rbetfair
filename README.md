@@ -5,7 +5,7 @@ Betfair API-NG implementation in the R programming language
 
 Betafair started out as an exchange for betting in 2000. See - [What is Befair?](https://betting.betfair.com/what/)
 
-`rbetfair` Is a generated set of R api wrappers which define the specification [Developers Specitfications](https://api.developer.betfair.com/) for AccountAPING.xml, SportsAPING.xml, HeartbeatAPING.xml. This allows an R application to talk to betfair exchanges a little clearer by defining validation and parameter wrapping rather than using raw JSON parameters and result sets. But of course you are free to use simple lists and vectors and raw JSON if you wish and samples included should demonstrate some of the flexiblity.
+`rbetfair` Is a generated set of R api wrappers which define the specification [Developers Specitfications](https://developer.betfair.com/) for AccountAPING.xml, SportsAPING.xml, HeartbeatAPING.xml. This allows an R application to talk to betfair exchanges a little clearer by defining validation and parameter wrapping rather than using raw JSON parameters and result sets. But of course you are free to use simple lists and vectors and raw JSON if you wish and samples included should demonstrate some of the flexiblity.
 
 Install using GIT and`R CMD build`
 
