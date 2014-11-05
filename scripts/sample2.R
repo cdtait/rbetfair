@@ -15,11 +15,11 @@ if (exchange=='AUS') {
 ssologin(appKey,username,password)
 
 # Get the horse racing event types ids
-(eventTypes<-listEventTypes(filter=list(textQuery="Horse Racing")))
+eventTypes<-listEventTypes(filter=list(textQuery="Horse Racing"))
 # Use the first one assuming there is only one anyway
-horseRacingTypeId<-eventTypes[1,'eventType.id'])
+horseRacingTypeId<-eventTypes[1,'eventType.id']
 # Get first 10 todays uk horse racing WIN markets
-(winHorseRacing<-listMarketCatalogue(
+winHorseRacing<-listMarketCatalogue(
   filter=list(eventTypeIds=list(horseRacingTypeId),
                       marketCountries=list(countryCode),
                       marketTypeCodes=list("WIN"),
