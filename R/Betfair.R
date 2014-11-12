@@ -27,6 +27,22 @@ catalogue.description<-function(catalogue) {
   data.frame(catalogue[names(catalogue) != "runners"],stringsAsFactors = FALSE)
 }
 
+book.runner.matches<-function(runner,marketId) {
+  add.marketId.selectionId(runner$matches,marketId,runner$selectionId)
+}
+
+book.runners.matches<-function(book) { 
+  ldply(book$runners,book.runner.matches,book$marketId) 
+}
+
+book.runner.orders<-function(runner,marketId) {
+  add.marketId.selectionId(runner$orders,marketId,runner$selectionId)
+}
+
+book.runners.orders<-function(book) { 
+  ldply(book$runners,book.runner.orders,book$marketId) 
+}
+
 book.runner.ex.tradedVolume.pricesize<-function(pricesize,marketId,selectionId) {
   add.marketId.selectionId(pricesize,marketId,selectionId)
 }
@@ -471,7 +487,9 @@ listMarketBook<-function(marketIds=ListOfMarketId(), priceProjection=NULL,
               runners.sp.layLiabilityTaken=ldply(lbooks,book.runners.sp.layLiabilityTaken),
               runners.ex.availableToBack=ldply(lbooks,book.runners.ex.availableToBack),
               runners.ex.availableToLay=ldply(lbooks,book.runners.ex.availableToLay),
-              runners.ex.tradedVolume=ldply(lbooks,book.runners.ex.tradedVolume)
+              runners.ex.tradedVolume=ldply(lbooks,book.runners.ex.tradedVolume),
+              runners.orders=ldply(lbooks,book.runners.orders),
+              runners.matches=ldply(lbooks,book.runners.matches),
               )
          )
 }
