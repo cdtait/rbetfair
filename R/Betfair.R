@@ -110,13 +110,20 @@ market.book<-function(book) {
 }
 
 marketProfitAndLoss<-function(profitAndLoss) {
-  ldply(profitAndLoss,add.marketId,profitAndLoss$marketId) 
+  ldply(profitAndLoss$profitAndLosses,add.marketId,profitAndLoss$marketId) 
 }
 
 commissionApplied<-function(profitAndLoss) {
-  data.frame(marketId=profitAndLoss$marketId,
-             commissionApplied=profitAndLoss$commissionApplied,
-             stringsAsFactors = FALSE)
+  if(!is.null(profitAndLoss$commissionApplied)) {
+    data.frame(marketId=profitAndLoss$marketId,
+               commissionApplied=profitAndLoss$commissionApplied,
+               stringsAsFactors = FALSE)
+  }
+  else {
+    data.frame(marketId=profitAndLoss$marketId,
+               commissionApplied=NA,
+               stringsAsFactors = FALSE)
+  }
 }
 
 instruction.report<-function(instruction,marketId) {
@@ -753,13 +760,13 @@ listMarketProfitAndLoss<-function(marketIds=SetOfMarketId(),
                                     includeSettledBets=NULL, includeBspBets=NULL, netOfCommission=NULL ,
                                     exchange=.BetfairEnv$exchange, appKey=.BetfairEnv$appKey,
                                     sessionToken=.BetfairEnv$sessionToken) {
-  marketProfitAndLoss<-r.listMarketProfitAndLoss(marketIds=marketIds,
+  pnl<-r.listMarketProfitAndLoss(marketIds=marketIds,
                                     includeSettledBets=includeSettledBets, includeBspBets=includeBspBets,
                                     netOfCommission=netOfCommission , exchange=exchange, appKey=appKey,
                                     sessionToken=sessionToken)$result
   
-  list(marketProfitAndLoss=ldply(marketProfitAndLoss$profitAndLosses,marketProfitAndLoss),
-       commissionApplied=ldply(marketProfitAndLoss$profitAndLosses,commissionApplied))
+  list(marketProfitAndLoss=ldply(pnl,marketProfitAndLoss),
+       commissionApplied=ldply(pnl,commissionApplied))
 }
 
 ################################################################################
