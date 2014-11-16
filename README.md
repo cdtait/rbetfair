@@ -31,6 +31,9 @@ Once the login details are complete can now use rbetfair
 ```coffee
 require(rbetfair)
 countryCode='GB'
+# If you are using login() and want to avoid any kind of ssl.verification then set the
+# environment varible .BetfairEnv$sslverify like below
+# .BetfairEnv$sslverify<-FALSE
 ssologin(appKey,username,password,sslcert)
 # Example is for horse racing using pure R interface
 eventTypes<-r.listEventTypes(filter=MarketFilter(textQuery="Horse Racing"))
