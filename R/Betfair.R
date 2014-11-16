@@ -489,7 +489,7 @@ listMarketBook<-function(marketIds=ListOfMarketId(), priceProjection=NULL,
               runners.ex.availableToLay=ldply(lbooks,book.runners.ex.availableToLay),
               runners.ex.tradedVolume=ldply(lbooks,book.runners.ex.tradedVolume),
               runners.orders=ldply(lbooks,book.runners.orders),
-              runners.matches=ldply(lbooks,book.runners.matches),
+              runners.matches=ldply(lbooks,book.runners.matches)
               )
          )
 }
