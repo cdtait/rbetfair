@@ -27,7 +27,8 @@ login<-function(appKey,username,password) {
   	          postfields=req,
   	          verbose=.BetfairEnv$debug,
               writefunction = .BetfairEnv$textGatherer$update,
-              headerfunction = .BetfairEnv$headerGatherer$update
+              headerfunction = .BetfairEnv$headerGatherer$update,
+              ssl.verifypeer = FALSE
              )
   
   httpHeader<-parseHTTPHeader(.BetfairEnv$headerGatherer$value())
