@@ -11,10 +11,13 @@
 # Default certificate expected in R working directory
 .BetfairEnv$sslcert<-'./client-2048.pem'
 
-# Deafult no debug
+# Default no debug
 .BetfairEnv$debug<-FALSE
 # Default use rpc method
 .BetfairEnv$method<-'RPC'
+
+# Default
+.BetfairEnv$sslverify<-TRUE
 
 # International
 .BetfairEnv$uk.url<-'https://api.betfair.com/exchange/'
@@ -131,7 +134,8 @@ run.operation<-function(method,params,exchange,appKey=.BetfairEnv$appKey,session
            verbose=.BetfairEnv$debug,
            writefunction = .BetfairEnv$textGatherer$update,
            headerfunction = .BetfairEnv$headerGatherer$update,
-           curl=.BetfairEnv$curl
+           curl=.BetfairEnv$curl,
+           ssl.verifypeer = .BetfairEnv$sslverify
         )
   
   httpHeader<-parseHTTPHeader(.BetfairEnv$headerGatherer$value())
